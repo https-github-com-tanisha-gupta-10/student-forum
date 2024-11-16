@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\like;
 use App\Models\Que;
 use App\Models\User;
+use App\Models\Like;
 use Illuminate\Http\Request;
 
 class Main extends Controller
@@ -60,28 +60,16 @@ class Main extends Controller
         $user = User::find($user_id);
         $post = Que::find($post_id);
 
-        // Check if the user exists
-        if (!$user || !$post) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'User or post not found.',
-            ], 404);
-        }
+        $like = new Like();
 
-        $like = new like();
-
-        $like->user_id = $user_id;
-        $like->post_id = $post_id;
+        $like->user_id = $req->get('user_id');
+        $like->post_id = $req->get('post_id');
         $like->is_liked = $req->get('is_liked');
         $like->like_type = $req->get('like_type');
 
         $like->save();
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Post liked successfully.',
-            'likes' => $post->likes + 1, // Assuming you store like count in the `Que` model
-        ]);
+        return $like;
     }
 
 }

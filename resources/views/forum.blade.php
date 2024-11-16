@@ -208,9 +208,11 @@
                 let userId = {{ $user->id }} ;
                 
                 $.ajax({
-                    type: "post",
-                    url: 'https://92d5-103-18-68-147.ngrok-free.app/add_like/' + userId + '/' + postId,
+                    type: "get",
+                    url: 'http://localhost:8000/add_like/' + userId + '/' + postId,
                     data: {
+                        user_id: userId,
+                        post_id: postId,
                         is_liked: 1,
                         like_type: 'like'
                     },
