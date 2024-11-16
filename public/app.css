@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+.que_cont {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+}
+
+.que_cont img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: auto 0;
+}
+
+.que_cont .time {
+    font-size: 12px;
+    font-weight: 500;
+    color: grey;
+}
+
+.user_profile {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.forum_post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.forum_cont {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.add_btn {
+    background: #543ae3;
+    color: white;
+    width: 100%;
+    font-size: 32px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    padding-bottom: 7px;
+    border-radius: 50%;
+    position: fixed;
+    right: 30px;
+    bottom: 50px;
+}
+
+.add_ques {
+    display: flex;
+    height: 50px;
+    width: 50px;
+}
+
+.add_que_form {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background-color: #00000020;
+    align-items: end;
+}
+
+.form_cont {
+    display: flex;
+    background-color: white;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px 20px 0 0;
+    padding: 15px;
+    
+}
