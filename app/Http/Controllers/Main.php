@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
 use App\Models\Que;
 use App\Models\User;
-use App\Models\Like;
 use Illuminate\Http\Request;
 
 class Main extends Controller
@@ -53,23 +53,44 @@ class Main extends Controller
             ->with('success', 'Your question has been submitted.');
     }
 
-    public function add_like($user_id, $post_id, Request $req)
+    public function add_like(Request $req)
     {
 
-        // Find the user
-        $user = User::find($user_id);
-        $post = Que::find($post_id);
+        return response()->json("hello", 200, );
+        // $req->validate([
+        //     'user_id' => 'required',
+        //     'post_id' => 'required',
+        // ]);
 
-        $like = new Like();
+        // $existingLike = Like::where('user_id', $req->user_id)->where('post_id', $req->post_id)->where('is_liked', 1)->first();
 
-        $like->user_id = $req->get('user_id');
-        $like->post_id = $req->get('post_id');
-        $like->is_liked = $req->get('is_liked');
-        $like->like_type = $req->get('like_type');
+        // if ($existingLike) {
+        //     if ($existingLike->is_liked) {
+        //         $existingLike->is_liked = 0;
+        //         $existingLike->like_type = 'dislike';
+        //     } else {
+        //         $existingLike->is_liked = 1;
+        //         $existingLike->like_type = $req->like_type;
+        //     }
 
-        $like->save();
+        //     $existingLike->save();
 
-        return $like;
+        // } else {
+
+        //     $like = new Like();
+
+        //     $like->user_id = $req->get('user_id');
+        //     $like->post_id = $req->get('post_id');
+        //     $like->is_liked = $req->get('is_liked');
+        //     $like->like_type = $req->get('like_type');
+
+        //     $like->save();
+        // }
+
+        // return response()->json([
+        //     'code' => 200,
+        //     'message' => 'Like added successfully.',
+        // ], 200, );
     }
 
 }
